@@ -1,11 +1,13 @@
-import './App.css';
+import React from 'react';
+import FileUpload from './components/FileUploads';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-    Hello World!
+      <h1>Media Upload</h1>
+      <FileUpload />
     </div>
   );
-}
+};
 
 export default App;
