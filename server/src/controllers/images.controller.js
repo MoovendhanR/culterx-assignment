@@ -10,10 +10,14 @@ const router = express.Router();
 // Multer setup for file storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, (__dirname, '../server/uploads'));
+    // cb(null, (__dirname, '../server/uploads'));
+    cb(null, (__dirname, '../client/src/images'));
+
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    // cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + file.originalname);
+
   },
 });
 
@@ -66,10 +70,6 @@ router.post('/upload', upload.single('media'), async (req, res) => {
   }
 });
 
-
-
-// delete
-
 // DELETE route for deleting a media file by ID
 router.delete('/:id', async (req, res) => {
     try {
@@ -78,7 +78,6 @@ router.delete('/:id', async (req, res) => {
       if (!media) {
         return res.status(404).json({ error: 'Media not found' });
       }
-  
       // Delete file from filesystem
       const filePath = path.join(__dirname, '../', media.path);
       fs.unlink(filePath, (err) => {

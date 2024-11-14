@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt')
 const router = express.Router();
 
 
-router.get("/",async(req, res) => {
+router.get("/user",async(req, res) => {
      try{
         const users = await User.find().lean().exec();
        res.status(200).send({users:users})
