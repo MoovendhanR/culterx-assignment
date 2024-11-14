@@ -79,13 +79,13 @@ router.delete('/:id', async (req, res) => {
         return res.status(404).json({ error: 'Media not found' });
       }
       // Delete file from filesystem
-      const filePath = path.join(__dirname, '../', media.path);
-      fs.unlink(filePath, (err) => {
-        if (err) {
-          console.error('Error deleting file:', err);
-          return res.status(500).json({ error: 'Failed to delete file' });
-        }
-      });
+      // const filePath = path.join(__dirname, '../', media.path);
+      // fs.unlink(filePath, (err) => {
+      //   if (err) {
+      //     console.error('Error deleting file:', err);
+      //     return res.status(500).json({ error: 'Failed to delete file' });
+      //   }
+      // });
   
       // Delete media document from MongoDB
       await media.deleteOne();

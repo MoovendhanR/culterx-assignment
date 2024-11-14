@@ -25,6 +25,7 @@ const FileUpload = () => {
   };
 
   const handleUpload = async () => {
+    // e.prventDefault()
     if (!file) return;
 
     const formData = new FormData();
@@ -43,6 +44,7 @@ const FileUpload = () => {
   };
 
   const handleDelete = async (id) => {
+    console.log(id)
     try {
       await fetch(`http://localhost:5001/api/${id}`, {
         method: 'DELETE',
@@ -62,14 +64,14 @@ const FileUpload = () => {
         <button onClick={handleUpload} style={styles.uploadButton}>Upload</button>
       </div>
       <div style={styles.mediaGrid}>
-        {mediaList.map((media) => (
+        {mediaList?.map((media) => (
           <div key={media._id} style={styles.mediaItem}>
             {media?.type === 'image' ? (
               <img src={require(`../images/${media?.filename}`)} alt={media?.filename} style={styles.mediaPreview} />
             ) : (
               <video src={`/${media?.path}`} controls style={styles.mediaPreview} />
             )}
-            <button onClick={() => handleDelete(media._id)} style={styles.deleteButton}>
+            <button onClick={() => handleDelete(media?._id)} style={styles.deleteButton}>
               Delete
             </button>
           </div>
