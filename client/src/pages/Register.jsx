@@ -19,7 +19,7 @@ const Register = () => {
         })
         .then(res => res.json())
         .then(res =>{
-          alert("Register Successfull!")
+          alert(" Successfull!")
           console.log(res)})
         .then(res=>navigate("/login"))
         .catch(err => console.log(err));
