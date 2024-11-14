@@ -11,9 +11,7 @@ const connect = require("./config/db");
 const app = express();
 
 app.use(cors({
-    origin:[""],
-    methods:["POST","GET","DELETE"],
-    credentials:true
+    origin:"*"
 }))
 app.use(express.json())
 
