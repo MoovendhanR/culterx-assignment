@@ -11,7 +11,9 @@ const connect = require("./config/db");
 const app = express();
 
 app.use(cors({
-    origin:"*"
+    origin:[""],
+    methods:["POST","GET","DELETE"],
+    credentials:true
 }))
 app.use(express.json())
 
@@ -39,7 +41,7 @@ app.get("/",(req,res)=>{
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
-app.listen(process.env.port,async()=>{
+app.listen(5001,async()=>{
     await connect();
-    console.log(`Listening on Port ${process.env.port}`)
+    console.log(`Listening on Port ${5001}`)
 })
