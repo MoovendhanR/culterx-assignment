@@ -43,3 +43,23 @@ app.listen(5001,async()=>{
     await connect();
     console.log(`Listening on Port ${5001}`)
 })
+
+
+// vercel.json
+// {
+//     "installCommand": "npm install --legacy-peer-deps",
+//     "version": 2,
+//     "builds": [
+//       {
+//         "src": "index.js",
+//         "use": "@vercel/node"
+//       },
+//       {
+//         "src": "src/**/*",
+//         "use": "@vercel/static"
+//       }
+//     ],
+//     "routes": [
+//       { "src": "/(.*)", "dest": "/" }
+//     ]
+//   }

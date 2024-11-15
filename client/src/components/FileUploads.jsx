@@ -32,7 +32,7 @@ const FileUpload = () => {
     formData.append('media', file);
 
     try {
-      const response = await fetch('http://localhost:5001/api/upload', {
+      const response = await fetch('https://culterx-assignment.vercel.app/api/upload', {
         method: 'POST',
         body: formData,
       });
