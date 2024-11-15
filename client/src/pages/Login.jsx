@@ -10,7 +10,7 @@ const Login = () => {
 
   // const handleSubmit = () => {
   //   const payload = { email, password };
-  //   fetch("https://culterx-assignment-api.onrender.com/login", {
+  //   fetch("https://culterx-assignment-api.onrender.com/api/login", {
   //     method: "POST",
   //     body: JSON.stringify(payload),
   //     headers: { "Content-type": "application/json" },
@@ -32,7 +32,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     const payload = { email, password };
-    fetch("https://culterx-assignment-api.onrender.com/login", {
+    fetch("https://culterx-assignment-api.onrender.com/api/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: { "Content-type": "application/json" },
@@ -181,7 +181,7 @@ export default Login;
 //   // Regular login submit
 //   const handleSubmit = () => {
 //     const payload = { email, password };
-//     fetch("https://culterx-assignment-api.onrender.com/login", {
+//     fetch("https://culterx-assignment-api.onrender.com/api/login", {
 //       method: "POST",
 //       body: JSON.stringify(payload),
 //       headers: { "Content-type": "application/json" },
@@ -209,7 +209,7 @@ export default Login;
 //       googleId: decoded.sub,
 //     };
 
-//     fetch("https://culterx-assignment-api.onrender.com/login", {
+//     fetch("https://culterx-assignment-api.onrender.com/api/login", {
 //       method: "POST",
 //       body: JSON.stringify(payload),
 //       headers: { "Content-type": "application/json" },
