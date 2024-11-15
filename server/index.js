@@ -6,7 +6,7 @@ const path = require('path');
 require('dotenv').config()
 
 
-const connect = require("./config/db");
+const connect = require("./src/config/db");
 
 const app = express();
 
@@ -27,8 +27,8 @@ app.use(express.json())
   app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
   
   // Import and use the upload route
-  const uploadRoutes = require('./controllers/images.controller');
-  const userRoutes  = require('./controllers/user.controller')
+  const uploadRoutes = require('./src/controllers/images.controller');
+  const userRoutes  = require('./src/controllers/user.controller')
   app.use('/api',uploadRoutes);
   app.use('/api',userRoutes)
   
