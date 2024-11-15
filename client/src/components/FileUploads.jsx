@@ -8,7 +8,7 @@ const FileUpload = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api');
+        const response = await fetch('https://culterx-assignment-api.onrender.com/api');
         const data = await response.json();
         console.log(data, "data");
         setMediaList(data);
@@ -32,7 +32,7 @@ const FileUpload = () => {
     formData.append('media', file);
 
     try {
-      const response = await fetch('https://culterx-assignment.vercel.app/api/upload', {
+      const response = await fetch('https://culterx-assignment-api.onrender.com/api/upload', {
         method: 'POST',
         body: formData,
       });
@@ -46,7 +46,7 @@ const FileUpload = () => {
   const handleDelete = async (id) => {
     console.log(id)
     try {
-      await fetch(`http://localhost:5001/api/${id}`, {
+      await fetch(`https://culterx-assignment-api.onrender.com/api/${id}`, {
         method: 'DELETE',
       });
       // Remove deleted media from the list
@@ -67,7 +67,7 @@ const FileUpload = () => {
         {mediaList?.map((media) => (
           <div key={media._id} style={styles.mediaItem}>
             {media?.type === 'image' ? (
-              <img src={require(`../images/${media?.filename}`)} alt={media?.filename} style={styles.mediaPreview} />
+              <img src={(`/${media?.path}`)} alt={media?.filename} style={styles.mediaPreview} />
             ) : (
               <video src={`/${media?.path}`} controls style={styles.mediaPreview} />
             )}

@@ -56,7 +56,7 @@ router.post("/login",async(req, res) => {
 
 router.get('/:id', async(req, res) => {
    try{
-       const note=await Notes.findById(req.params.id).lean().exec();
+       const note=await User.findById(req.params.id).lean().exec();
        res.status(200).send(note);
    }catch(err){
        res.status(500).send({message:err.message})

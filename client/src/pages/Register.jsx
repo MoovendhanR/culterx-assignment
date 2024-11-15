@@ -12,7 +12,7 @@ const Register = () => {
 
         const payload = { name, email, password, age };
         
-        fetch("http://localhost:5001/api/register", {
+        fetch("https://culterx-assignment-api.onrender.com/register", {
             method: "POST",
             body: JSON.stringify(payload),
             headers: { "Content-type": "application/json" }
